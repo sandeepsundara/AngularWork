@@ -22,6 +22,9 @@ import { ObserabletestComponent } from './obserabletest/obserabletest.component'
 import { NewTaskComponent } from './new-task/new-task.component';
 import { ShowTaskComponent } from './show-task/show-task.component';
 import { SubjectComponent } from './subject/subject.component';
+import { ViewChildrenComponent } from './view-children/view-children.component';
+import { ContainerngexampleComponent } from './containerngexample/containerngexample.component';
+import { ContentExampleComponent } from './content-example/content-example.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { SubjectComponent } from './subject/subject.component';
     ObserabletestComponent,
     NewTaskComponent,
     ShowTaskComponent,
-    SubjectComponent
+    SubjectComponent,
+    ViewChildrenComponent,
+    ContainerngexampleComponent,
+    ContentExampleComponent
   ],
   imports: [
     BrowserModule,

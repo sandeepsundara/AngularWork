@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 import {ajax } from 'rxjs/ajax';
 
 @Component({
@@ -16,7 +16,14 @@ export class SubjectComponent implements OnInit {
 
     //let obs = new Subject();
 
-    let obs1 = new BehaviorSubject<number>(10);  // initial value
+    let obs2 = new ReplaySubject();
+
+    obs2.next(2002);
+    obs2.next(2000);
+    obs2.next(2001);
+
+
+    //let obs1 = new BehaviorSubject<number>(10);  // initial value
     
 
    const data = ajax('https://randomuser.me/api/');
@@ -24,7 +31,7 @@ export class SubjectComponent implements OnInit {
    data.subscribe((res) => console.log(res));
    data.subscribe((res) => console.log(res));
    //obs1.next(100);
-   obs1.subscribe((res1) => console.log(res1));
+   obs2.subscribe((res1) => console.log(res1));
    //data.subscribe(obs1);
 
   //   obs.subscribe((data) => {
