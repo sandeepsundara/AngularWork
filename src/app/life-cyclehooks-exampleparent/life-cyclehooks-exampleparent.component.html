@@ -1,11 +1,11 @@
 <div class = 'container'>
 <input type = 'text' #test>
 <button (click) = "OnBtnClicked(test)"  (focus) = "0">Submit</button>
-<app-life-cyclehooks-example [message] = 'inputValue' *ngIf = "toDistroy" >
+<app-life-cyclehooks-example [message] = 'inputValue' *ngIf = "!toDistroy" >
 <h1 #temp>Hi Sundara  you have a message : {{inputValue}}</h1>
 <p>Sandeep </p>
 <button #temp1  (click) = 'OnBtnPressed()'>Click</button>
 </app-life-cyclehooks-example>
 <br><br>
-<button (click) = "DistroyComponent">show/hide</button>
+<button (click) = "DistroyComponent()">show/hide</button>
 </div>

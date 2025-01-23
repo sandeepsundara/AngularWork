@@ -27,6 +27,11 @@ import { ContainerngexampleComponent } from './containerngexample/containerngexa
 import { ContentExampleComponent } from './content-example/content-example.component';
 import { LifeCyclehooksExampleComponent } from './life-cyclehooks-example/life-cyclehooks-example.component';
 import { LifeCyclehooksExampleparentComponent } from './life-cyclehooks-exampleparent/life-cyclehooks-exampleparent.component';
+import { CustomattrDirectiveExampleComponent } from './customattr-directive-example/customattr-directive-example.component';
+import { SetBackGround } from './CustomDirectives/SetBackGround.directive';
+import { HighlightDirective } from './CustomDirectives/highlight.directive';
+import { HostlisternerexampleComponent } from './hostlisternerexample/hostlisternerexample.component';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +56,12 @@ import { LifeCyclehooksExampleparentComponent } from './life-cyclehooks-examplep
     ContainerngexampleComponent,
     ContentExampleComponent,
     LifeCyclehooksExampleComponent,
-    LifeCyclehooksExampleparentComponent
+    LifeCyclehooksExampleparentComponent,
+    CustomattrDirectiveExampleComponent,
+    SetBackGround,
+    HighlightDirective,
+    HostlisternerexampleComponent,
+   
   ],
   imports: [
     BrowserModule,
