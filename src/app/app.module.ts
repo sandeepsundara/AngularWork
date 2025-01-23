@@ -25,6 +25,8 @@ import { SubjectComponent } from './subject/subject.component';
 import { ViewChildrenComponent } from './view-children/view-children.component';
 import { ContainerngexampleComponent } from './containerngexample/containerngexample.component';
 import { ContentExampleComponent } from './content-example/content-example.component';
+import { LifeCyclehooksExampleComponent } from './life-cyclehooks-example/life-cyclehooks-example.component';
+import { LifeCyclehooksExampleparentComponent } from './life-cyclehooks-exampleparent/life-cyclehooks-exampleparent.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { ContentExampleComponent } from './content-example/content-example.compo
     SubjectComponent,
     ViewChildrenComponent,
     ContainerngexampleComponent,
-    ContentExampleComponent
+    ContentExampleComponent,
+    LifeCyclehooksExampleComponent,
+    LifeCyclehooksExampleparentComponent
   ],
   imports: [
     BrowserModule,
