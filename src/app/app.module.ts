@@ -7,7 +7,7 @@ import { HeaderComponentComponent } from './header-component/header-component.co
 import { FooterComponentComponent } from './footer-component/footer-component.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateTaskComponent } from './dashboard/create-task/create-task.component';
 import { TaskDetailsComponent } from './dashboard/task-details/task-details.component';
@@ -31,6 +31,8 @@ import { CustomattrDirectiveExampleComponent } from './customattr-directive-exam
 import { SetBackGround } from './CustomDirectives/SetBackGround.directive';
 import { HighlightDirective } from './CustomDirectives/highlight.directive';
 import { HostlisternerexampleComponent } from './hostlisternerexample/hostlisternerexample.component';
+import { AppHover } from './CustomDirectives/apphover.directive';
+import { ReactiveformsComponent } from './reactiveforms/reactiveforms.component';
 
 
 @NgModule({
@@ -60,13 +62,16 @@ import { HostlisternerexampleComponent } from './hostlisternerexample/hostlister
     CustomattrDirectiveExampleComponent,
     SetBackGround,
     HighlightDirective,
+    AppHover,
     HostlisternerexampleComponent,
+    ReactiveformsComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [StudentService],

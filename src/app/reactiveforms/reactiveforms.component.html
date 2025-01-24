@@ -1,0 +1,124 @@
+<section class="container">
+  <header>Registration Form</header>
+  
+  <form class="form" [formGroup]="reactiveForm" (ngSubmit)="OnFormSubmitted()">
+    <!-- Personal Details -->
+    <div class="column">
+      <div class="input-box">
+        <input type="text" placeholder="First Name" formControlName="firstName" />
+        <small *ngIf="reactiveForm.get('firstName').errors?.['required'] && reactiveForm.get('firstName').touched">
+          *First Name is required
+        </small>
+        <small *ngIf="reactiveForm.get('firstName').errors?.['noSpaceAllowed'] && reactiveForm.get('firstName').touched">
+          *No Space allowed
+        </small>
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Last Name" formControlName="lastName" />
+        <small *ngIf="reactiveForm.get('lastName').invalid && reactiveForm.get('lastName').touched">
+          *Last Name is required
+        </small>
+      </div>
+    </div>
+    
+    <div class="input-box">
+      <input type="text" placeholder="Email" formControlName="email" />
+    </div>
+
+    <div class="column">
+      <div class="input-box">
+        <input type="text" placeholder="Username" formControlName="userName" />
+        <button class="btn-gen-username" type="button">Create a Username</button>
+      </div>
+      <div class="input-box">
+        <input type="date" placeholder="Date of Birth" formControlName="dob" />
+      </div>
+    </div>
+
+    <!-- Gender -->
+    <div class="gender-box">
+      <h3>Gender</h3>
+      <div class="gender-option">
+        <div class="gender">
+          <input type="radio" value="male" id="check-male" formControlName="gender" />
+          <label for="check-male">Male</label>
+        </div>
+        <div class="gender">
+          <input type="radio" value="female" id="check-female" formControlName="gender" />
+          <label for="check-female">Female</label>
+        </div>
+        <div class="gender">
+          <input type="radio" value="other" id="check-other" formControlName="gender" />
+          <label for="check-other">Prefer not to say</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="input-box address" formGroupName="address">
+      <label>Address</label>
+      <input type="text" placeholder="Street address" formControlName="street" />
+      <small *ngIf="reactiveForm.get('address.street').invalid && reactiveForm.get('address.street').touched">
+        *Street name is required
+      </small>
+      <div class="column">
+        <div class="select-box">
+          <select name="country" formControlName="country">
+            <option hidden>Country</option>
+            <option>America</option>
+            <option>Japan</option>
+            <option>India</option>
+            <option>Nepal</option>
+          </select>
+        </div>
+        <input type="text" placeholder="City" formControlName="city" />
+      </div>
+      <div class="column">
+        <input type="text" placeholder="Region" formControlName="region" />
+        <input type="number" placeholder="Postal code" formControlName="postal" />
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="input-box skills" formArrayName="skills">
+      <h4>Add Skills</h4>
+      <div *ngFor="let control of reactiveForm.get('skills')['controls']; let i = index" class="column">
+        <input type="text" [formControlName]="i" placeholder="Add Skill..." />
+        <button type="button" class="btn-add-delete" (click)="deleteSkill(i)">Delete</button>
+      </div>
+      <button type="button" class="btn-add-delete" (click)="addSkill()">Add Skill</button>
+    </div>
+
+    <!-- Experience -->
+    <div class="input-box experience" formArrayName="Experience">
+      <h4>Add Experience</h4>
+      <div *ngFor="let e of reactiveForm.get('Experience')['controls']; let i = index" [formGroupName]="i">
+        <div class="input-box">
+          <input type="text" placeholder="Company Name" formControlName="company" />
+          <div class="column">
+            <div class="select-box">
+              <select formControlName="position">
+                <option hidden>Position</option>
+                <option>Junior Developer</option>
+                <option>Software Developer</option>
+                <option>Senior Developer</option>
+                <option>Team Lead</option>
+              </select>
+            </div>
+            <input type="number" formControlName="totalExp" placeholder="Experience (Years)" />
+          </div>
+          <div class="column">
+            <input type="date" formControlName="start" placeholder="Start Date" />
+            <input type="date" formControlName="end" placeholder="End Date" />
+          </div>
+          <button type="button" class="btn-add-delete" (click)="deleteExperience(i)">Delete Experience</button>
+        </div>
+      </div>
+    </div>
+    
+    <button type="button" class="btn-add-delete" (click)="addExperience()">Add Experience</button>
+    <!-- Submit Button -->
+    <input type="submit" value="Submit" class="submit-btn" />
+    <!-- [disabled]="!reactiveForm.valid" -->
+  </form>
+</section>
